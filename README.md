@@ -78,7 +78,7 @@ Fill the login form as follows and click on Connect:
 * and couple more
 
 ### Postman Collection
-![campsite-booking postman collection](resources/campsite-booking.postman_collection.json)
+[campsite-booking postman collection](resources/campsite-booking.postman_collection.json)
 
 ### Concurrency Test
 Then execute the following command to send three concurrent HTTP POST requests:

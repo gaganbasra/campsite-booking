@@ -13,7 +13,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Constraint(validatedBy = {DateRangeValidator.class})
 public @interface ValidDate {
-    String message() default "{invalid date}";
+    String message() default "{invalid date range}";
 
     Class<?>[] groups() default {};
 
