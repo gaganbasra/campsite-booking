@@ -1,11 +1,11 @@
 package com.campsite.booking.service;
 
-import com.campsite.booking.utils.model.BookingRequest;
+import com.campsite.booking.repository.BookingRepository;
 import com.campsite.booking.utils.exception.ProviderException;
 import com.campsite.booking.utils.model.AvailabilityRequest;
 import com.campsite.booking.utils.model.Booking;
+import com.campsite.booking.utils.model.BookingRequest;
 import com.campsite.booking.utils.model.BookingResponse;
-import com.campsite.booking.repository.BookingRepository;
 import io.vavr.control.Try;
 import lombok.AccessLevel;
 import lombok.Setter;
@@ -46,6 +46,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     @Transactional
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
     public BookingResponse save(BookingRequest bookingRequest) {
         AvailabilityRequest availabilityRequest = new AvailabilityRequest();
         availabilityRequest.setArrivalDate(bookingRequest.getArrivalDate());
@@ -73,6 +74,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     @Transactional
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
     public BookingResponse updateBooking(BookingRequest bookingRequest, Integer referenceId) {
         return Try.of(() -> bookingRepository.getOne(referenceId))
                 .filter(Objects::nonNull)
@@ -87,7 +89,6 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     @Transactional(readOnly = true)
-    @Lock(LockModeType.PESSIMISTIC_READ)
     public List<LocalDate> getAvailability(AvailabilityRequest availabilityRequest) {
         List<Booking> bookings = bookingRepository.findAll();
         List<LocalDate> bookedDays = Optional.ofNullable(bookings)
