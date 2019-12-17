@@ -3,6 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
     id 'java-library'
+    id 'jacoco'
 }
 
 group = 'com.campsite.booking'
@@ -28,20 +29,23 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testImplementation('junit:junit:4.12')
-    testImplementation('org.projectlombok:lombok')
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.projectlombok:lombok'
 }
 
 sourceSets {
     integrationTest {
         java {
-            compileClasspath += main.output + test.output
-            runtimeClasspath += main.output + test.output
             srcDir file('src/integration-test/java')
         }
-        resources.srcDir file('src/integration-test/resources')
+        resources {
+            srcDir file('src/integration-test/resources')
+        }
+        compileClasspath += (sourceSets.main.compileClasspath + sourceSets.test.compileClasspath)
+        runtimeClasspath += (sourceSets.main.runtimeClasspath + sourceSets.test.runtimeClasspath)
     }
 }
+
 
 test {
     useJUnitPlatform()
