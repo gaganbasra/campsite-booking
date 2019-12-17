@@ -33,6 +33,16 @@ date(s). Demonstrate with appropriate test cases that the system can gracefully 
 ### API Docs
 * Swagger UI **http://localhost:8183/swagger-ui.html#/booking-controller**
 
+#### With IntelliJ or other IDE
+```bash
+$ git clone https://github.com/gaganbasra/campsite-booking.git
+```
+```text
+* Import as gradle project
+* Enable `annotations processors` for lombok annotations
+* Run BookingApplication.java
+```
+
 #### With Gradle
 ```bash
 $ git clone https://github.com/gaganbasra/campsite-booking.git
@@ -162,3 +172,5 @@ C:\Users\gagandeep.basra>
 ```
 ### Unit and Integration Test Coverage
 URL: **http://localhost:63342/campsite-booking/test-coverage.html?_ijt=gnctgbsbhn0e8c5j82ia26v6u**
+
+![Test Coverage Snapshot](/images/code-coverage.PNG)
