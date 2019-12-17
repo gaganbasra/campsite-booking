@@ -50,7 +50,8 @@ public class BookingControllerAdvice {
     @ExceptionHandler(BindException.class)
     public List<String> handleBindExceptions(BindException ex) {
         log.error("Request failed:", ex);
-        return Optional.of(ex.getBindingResult()).map(Errors::getAllErrors)
+        return Optional.of(ex.getBindingResult())
+                .map(Errors::getAllErrors)
                 .map(List::stream)
                 .orElse(Stream.empty())
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
