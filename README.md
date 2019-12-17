@@ -71,6 +71,15 @@ Fill the login form as follows and click on Connect:
 * User Name: **upgrade**
 * Password: **upgrade**
 
+### Spring Actuator Endpoints
+* Health: `http://localhost:8183/actuator/health`
+* Env: `http://localhost:8183/actuator/env`
+* Metrics: `http://localhost:8183/actuator/metrics`
+* and couple more
+
+### Postman Collection
+![campsite-booking postman collection](resources/campsite-booking.postman_collection.json)
+
 ### Concurrency Test
 Then execute the following command to send three concurrent HTTP POST requests:
 ```Bash
@@ -173,4 +182,4 @@ C:\Users\gagandeep.basra>
 ### Unit and Integration Test Coverage
 URL: **http://localhost:63342/campsite-booking/test-coverage.html?_ijt=gnctgbsbhn0e8c5j82ia26v6u**
 
-![Test Coverage Snapshot](/images/code-coverage.PNG)
+![Test Coverage Snapshot](/resources/code-coverage.PNG)
