@@ -180,6 +180,6 @@ Percentage of the requests served within a certain time (ms)
 C:\Users\gagandeep.basra>
 ```
 ### Unit and Integration Test Coverage
-URL: **http://localhost:63342/campsite-booking/test-coverage.html?_ijt=gnctgbsbhn0e8c5j82ia26v6u**
+URL: **http://localhost:63342/campsite-booking/resources/test-coverage.html?_ijt=91fv4cqimo0fphmq2re2sg5uba**
 
 ![Test Coverage Snapshot](/resources/code-coverage.PNG)
